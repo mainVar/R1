@@ -1,6 +1,14 @@
-﻿using UnityEngine;
+﻿//!Copyright(C) 2017 Panchenko Vladislav
+//!*****************************************************************************
+//! __Revisions:__
+//!  Date       | Author              | Comments
+//!  ---------- | ------------------- | ----------------
+//!  10/07/2017 | Panchenko Vladislav | script setting game (no work)
+//
+//******************************************************************************
+using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//-----------------------------------------------------------------------------
 public class Game_Setting : MonoBehaviour {
     spawn_zombies time_spawn_zombi_0;
     spawn_zombies time_spawn_zombi_1;
@@ -12,17 +20,19 @@ public class Game_Setting : MonoBehaviour {
     public GameObject offButton;
     public GameObject offReset;
     public float level;
-
+    //-----------------------------------------------------------------------------
     // Use this for initialization
     void Start ()
     {
+        //-----------------------------------------------------------------------------
         time_spawn_zombi_0 = spawn.GetComponent<spawn_zombies>();
         time_spawn_zombi_1 = spawn.GetComponent<spawn_zombies>();
         time_spawn_survivor = spawn.GetComponent<spawn_zombies>();
         time = timer.GetComponent<LTimer>();
         start = spawn.GetComponent<spawn_zombies>();
-        level = level + 1;
-	}
+        level = level + 1;  // number level counter
+        //-----------------------------------------------------------------------------
+    }
     void OnMouseDown()
     {
         //---start game (spawn zombi+ timer)------------------------------
@@ -35,10 +45,10 @@ public class Game_Setting : MonoBehaviour {
         offButton.SetActive(false);
         offReset.SetActive(false);
         //---set new seting level----------------------------
-        time_spawn_zombi_0.time_zombe_0 -= 0.1f;
+        time_spawn_zombi_0.time_zombe_0 -= 0.1f;  // -time spawn
         time_spawn_zombi_1.time_zombe_1 -= 0.1f;
         time_spawn_survivor.time_survivor -= 0.2f;
-        
+        //-----------------------------------------------------------------------------
     }
-
+    //-----------------------------------------------------------------------------
 }

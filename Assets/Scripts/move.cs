@@ -1,15 +1,24 @@
-﻿using UnityEngine;
-
+﻿//!Copyright(C) 2017 Panchenko Vladislav
+//!*****************************************************************************
+//! __Revisions:__
+//!  Date       | Author              | Comments
+//!  ---------- | ------------------- | ----------------
+//!  10/07/2017 | Panchenko Vladislav | script move controller 
+//
+//******************************************************************************
+using UnityEngine;
+//-----------------------------------------------------------------------------
 public class move : MonoBehaviour
 {
     public Transform player;
     [SerializeField]
-  //  private float speed=2f ;
- 
+    //  private float speed=2f ;
+    //-----------------------------------------------------------------------------
 
-    // Update is called once per frame
+    // Update is called OnMouseDrag()
     private void OnMouseDrag()
     {
+//-----------------------------------------------------------------------------
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // get Global coordinates player
         // set game plane 
         //if (mousePos.x > 2.8f) ;
@@ -26,9 +35,9 @@ public class move : MonoBehaviour
         //    new Vector2(mousePos.x, mousePos.y),
          //   speed * Time.deltaTime);
         player.position = new Vector2(mousePos.x, mousePos.y);
-
-
+//-----------------------------------------------------------------------------
     }
+    //-----------------------------------------------------------------------------
     void Update()
         // if player using onli tach 
     //  void OnMauseDrag()
@@ -49,6 +58,6 @@ public class move : MonoBehaviour
      //   player.position = Vector2.MoveTowards(player.position,
      //       new Vector2(mousePos.x, mousePos.y),
      //       speed * Time.deltaTime );
-    } 
-    
+    }
+    //-----------------------------------------------------------------------------
 }

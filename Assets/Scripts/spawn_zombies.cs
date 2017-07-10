@@ -1,9 +1,17 @@
-﻿using System.Collections;
+﻿//!Copyright(C) 2017 Panchenko Vladislav
+//!*****************************************************************************
+//! __Revisions:__
+//!  Date       | Author              | Comments
+//!  ---------- | ------------------- | ----------------
+//!  10/07/2017 | Panchenko Vladislav | script Aim on Bomb
+//
+//******************************************************************************
+using System.Collections;
 using UnityEngine;
-
+//-----------------------------------------------------------------------------
 public class spawn_zombies : MonoBehaviour
 {
-    
+    //----------------------------------------------------------------------------- 
     public GameObject zombie;// run line                 }
     public GameObject zombie_1;// run from side to side  }----->spawn
     public GameObject human;// run humen                 }
@@ -12,27 +20,14 @@ public class spawn_zombies : MonoBehaviour
     public float time_zombe_1=1;
     public float time_survivor=3;
     //	Use this for initialization
+    //-----------------------------------------------------------------------------
     void Start()
     {
-      //  yield.WaitForSeconds(3f);
-      //  if (play_s==true)
-      //  {
-       //    StartCoroutine(Spawn());
-      //  }
+       // init corotina
             StartCoroutine(Spawn());
-           // yield return new WaitForSeconds(3f);
+           
     }
-    
-  void Update ()
-    {
-      
-       // if (Start_g.start_game == true)
-      //  {
-       //     play_s = true;
-          //  StartCoroutine(Spawn());
-        //}
-    }
-
+    //-----------------------------------------------------------------------------
     IEnumerator Spawn()
     {
         if (play_s == true )
@@ -51,5 +46,5 @@ public class spawn_zombies : MonoBehaviour
 
         }
     }
-    
+    //----------------------------------------------------------------------------- 
 }

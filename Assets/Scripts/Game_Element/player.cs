@@ -1,8 +1,17 @@
-﻿using UnityEngine;
-
+﻿//!Copyright(C) 2017 Panchenko Vladislav
+//!*****************************************************************************
+//! __Revisions:__
+//!  Date       | Author              | Comments
+//!  ---------- | ------------------- | ----------------
+//!  10/07/2017 | Panchenko Vladislav | script player
+//
+//******************************************************************************
+using UnityEngine;
+//-----------------------------------------------------------------------------
 public class player : MonoBehaviour 
-{    
-	public static bool kill = false;
+{
+    //-----------------------------------------------------------------------------
+    public static bool kill = false;
     public volatile static bool lose = false;
     private int num;               // counter zombies
     public GameObject restart;
@@ -12,14 +21,17 @@ public class player : MonoBehaviour
    // spawn_zombies chek;
     public GameObject spawn_zombi;
     public GameObject end_level;
+    //-----------------------------------------------------------------------------
     private void Awake()
     {
-        lose = false;
+        lose = false; //need if game restart 
     }
+    //-----------------------------------------------------------------------------
     private void Start()
     {
      //   chek =spawn_zombi.GetComponent<spawn_zombies>();
     }
+    //-----------------------------------------------------------------------------
     void OnTriggerEnter2D (Collider2D other)
 	{
 
@@ -48,28 +60,30 @@ public class player : MonoBehaviour
             }
 
         }
-        //  Ain_on_human end;
-        //bool check;
-       // Ain_on_human end;
+        //-----------------------------------------------------------------------------
+        //  Ain_on_human end;                             /
+        //bool check;                                     /
+        // Ain_on_human end;                               /
         //end = new Ain_on_human();
 
-      //  if (end.lose_h==1)
-      //  {
+        //  if (end.lose_h==1)
+        //  {
         //    lose = true;
-       // }
-        
-      // if (Ain_on_human.lose_h==1)// problem 
-      //   {
-        //       lose = true;
-       //  }
+        // }
+
+        // if (Ain_on_human.lose_h==1)// problem 
+        //   {
+        //       lose = true; 
+        //  }
+        //-----------------------------------------------------------------------------
         if (lose==true)
         {
             //chek.play_s = false;
-            spawn_zombi.GetComponent<spawn_zombies>().enabled = false;
-            end_level.SetActive(true);
-            restart.SetActive(true);
+            spawn_zombi.GetComponent<spawn_zombies>().enabled = false; // call in script spawn_zombies end off him
+            end_level.SetActive(true);                                 // button nest level active
+            restart.SetActive(true);                                   // button restaret active
         }
-
-	}
-		
+        //-----------------------------------------------------------------------------
+    }
+    //-----------------------------------------------------------------------------
 }
