@@ -13,6 +13,11 @@ public class kill : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        if (teg.gameObject.tag == "bomb")
+        {
+            Destroy(gameObject,1f);
+        }
+
     }
 	
 	// Update is called once per frame

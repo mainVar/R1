@@ -4,24 +4,49 @@ public class player : MonoBehaviour
 {    
 	public static bool kill = false;
     public volatile static bool lose = false;
-    private float num;               // counter zombies
+    private int num;               // counter zombies
     public GameObject restart;
+    public GameObject zombi_miss1;
+    public GameObject zombi_miss2;
+    public GameObject zombi_miss3;
+   // spawn_zombies chek;
+    public GameObject spawn_zombi;
+    public GameObject end_level;
     private void Awake()
     {
         lose = false;
     }
-
+    private void Start()
+    {
+     //   chek =spawn_zombi.GetComponent<spawn_zombies>();
+    }
     void OnTriggerEnter2D (Collider2D other)
 	{
 
         if (other.gameObject.tag == "zombe_0")
         {
             
-            num++;
-            if (num >= 3)
+            num++; // +1 zombi
+            if (num >= 3) // end game lose
             {
-                 lose = true;
+                lose = true;
+                spawn_zombi.GetComponent<spawn_zombies>().enabled = false;
+                num = 0;
             }
+            switch (num)
+            {
+                case 1:
+                 zombi_miss1.SetActive(false);
+                    break;
+                case 2:
+                 zombi_miss2.SetActive(false);
+                    break;
+                case 3:
+                 zombi_miss3.SetActive(false);
+                    break;
+
+            }
+
         }
         //  Ain_on_human end;
         //bool check;
@@ -39,6 +64,9 @@ public class player : MonoBehaviour
        //  }
         if (lose==true)
         {
+            //chek.play_s = false;
+            spawn_zombi.GetComponent<spawn_zombies>().enabled = false;
+            end_level.SetActive(true);
             restart.SetActive(true);
         }
 
